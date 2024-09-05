@@ -1,0 +1,17 @@
+from datetime import date
+
+def es_cumpleaños(fecha_str):
+  """Comprueba si la fecha dada es el cumpleaños del usuario."""
+  fecha_hoy = date.today()
+  try:
+    fecha_dada = date.fromisoformat(fecha_str)
+    return (fecha_dada.day == fecha_hoy.day and
+            fecha_dada.month == fecha_hoy.month)
+  except ValueError:
+    return False
+
+fecha_entrada = input("Introduce tu fecha de cumpleaños (YYYY-MM-DD): ")
+if es_cumpleaños(fecha_entrada):
+  print("🎉 ¡Feliz cumpleaños! 🎉 🎂🥳")
+else:
+  print("Hoy no es tu cumpleaños.")
